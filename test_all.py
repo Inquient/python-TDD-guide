@@ -25,8 +25,9 @@ def test_SortAndFilter(arr, expected):
 # Проверка вычисления длинны диагонали
 @pytest.mark.parametrize("arr_x, arr_y, expected", [
     ([0, 0, 5, 5], [0, 5, 5, 0], 7.0710678118654755),
-    ([0, 0, 12, 12], [0, 9, 9, 0], 15.0),
-    ([2, 2, 5, 5], [2, 3, 3, 2], 3.1622776601683795)])
+    ([-1, -1, 11, 11], [0, 9, 9, 0], 15.0),
+    ([-2, -2, 5, 5], [-2, 3, 3, -2], 8.602325267042627),
+    ([-7,-7,-2,-2], [-7,-2,-2,-7], math.sqrt(50))])
 def test_diagonal(arr_x, arr_y, expected, setVertices):
     assert setVertices.setVertices(arr_x, arr_y) == expected
 
@@ -34,7 +35,8 @@ def test_diagonal(arr_x, arr_y, expected, setVertices):
 @pytest.mark.parametrize("arr_x, arr_y", [
     ([0, 0, 7, 5], [0, 5, 7, 0]),
     ([1, 2, 3, 4], [7, 8, 9, 0]),
-    ([9, 7, 7, 5], [7, 5, 3, 12])])
+    ([9, 7, 7, 5], [7, 5, 3, 12]),
+    ([-2, -1, 5, 4], [-1, 3, 3, -1])])
 def test_checkRect(arr_x, arr_y, setVertices):
     with pytest.raises(ValueError):
         assert setVertices.setVertices(arr_x, arr_y)

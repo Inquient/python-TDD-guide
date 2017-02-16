@@ -26,11 +26,8 @@ class Rectangle:
         self.x = x
         self.y = y
         self.diagonal()
-        # try:
         if self.checRect() == False:
             raise ValueError("Not a rectangle")
-        # except AssertionError as ex:
-        #     print(ex)
         return self.diagLen
 
     def diagonal(self):
